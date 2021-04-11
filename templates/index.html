@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width. initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Anonymous Emails and Reminders</title>
+  <meta name="description" content="Use this web tool to send emails anonymously as well as reminders to yourself">
+  <meta name="author" content="Nadav Salomon">
+
+  <link rel="stylesheet" href="static/styles.css?v=recent">
+
+</head>
+
+<body>
+    <div class="container">
+        {% if message %}
+        <p class="message">{{ message | safe }}</p>
+        {% endif %}
+        This webapp can be used to send emails anonymously to a recipient of your choice, or it can be used to send yourself a reminder or email. Please fill out the following fields and hit submit. The email will always display as from "flaskreminder@gmail.com."
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <h3>Recipient</h3>
+                <input type="text" id="recipient" name="recipient" placeholder="recipient's email address"></input>
+                <h3>Subject line:</h3>
+                <input type="text" id="subject" name="subject" placeholder="subject line of the email"></input>
+                <h3>Body of text:</h3>
+                <textarea type="text" id="body" name="body" placeholder="body of text here" cols="30"
+            rows="10"></textarea>
+            </div>
+            <input type="submit" value="Submit" class="btn" />
+        </form>
+    </div>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
